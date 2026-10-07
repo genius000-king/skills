@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "categories": [
+    {
+      "id": "creative-work",
+      "name": "التفكير والإبداع والتخطيط"
+    },
+    {
+      "id": "interfaces",
+      "name": "الواجهات والتصميم"
+    },
+    {
+      "id": "development",
+      "name": "التطوير"
+    },
+    {
+      "id": "data",
+      "name": "البيانات"
+    },
+    {
+      "id": "automation",
+      "name": "الأتمتة"
+    },
+    {
+      "id": "writing",
+      "name": "الكتابة"
+    }
+  ],
+  "skills": [
+    {
+      "id": "mokhtabar",
+      "name": "مختبر",
+      "category": "creative-work",
+      "version": "3.0.0",
+      "summary": "بدائل تصميم على الصفحات الفعلية، وهوية مستقلة وخريطة تنقل وملاحظات ومواصفات تنفيذ.",
+      "path": "skills/mokhtabar",
+      "entrypoint": "skills/mokhtabar/SKILL.md",
+      "documentation": "skills/mokhtabar/README.md",
+      "package": "packages/mokhtabar-v3.0.0.zip",
+      "preview": "docs/preview.html",
+      "screenshots": "docs/SCREENSHOTS.md",
+      "license": "MIT",
+      "requirements": [
+        "Python 3.10+",
+        "متصفح حديث",
+        "وكيل يستطيع قراءة وكتابة الملفات"
+      ]
+    }
+  ]
+}
