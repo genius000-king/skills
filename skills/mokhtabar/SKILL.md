@@ -1,11 +1,11 @@
 ---
 name: mokhtabar
-description: "مختبر: create a fixed dark Arabic decision studio with real project page variants, an interactive page-flow canvas, page specifications and notes, and an exportable implementation brief. Use for website/app design, adapting existing projects while preserving their identity, new visual identity choices, motion/video, visual explanations, and project planning."
+description: "مختبر: create a fixed dark Arabic guided decision studio with automatic contextual questions and a single preview with real project page variants, an interactive page-flow canvas, page specifications and notes, and an exportable implementation brief. Use for website/app design, adapting existing projects while preserving their identity, new visual identity choices, motion/video, visual explanations, and project planning."
 license: MIT
 compatibility: "Python 3.10+ and a modern browser. Requires an agent that reads/writes files; source inspection and browser access improve preview fidelity."
 metadata:
   display-name: "مختبر"
-  version: "3.0.0"
+  version: "4.0.0"
 ---
 
 # مختبر
@@ -14,6 +14,23 @@ metadata:
 مواصفات التنفيذ. استخدم [assets/lab.html](assets/lab.html) و[scripts/build.py](scripts/build.py).
 إطار المختبر ثابت: #0a0a0a / #f1f0ec، IBM Plex Sans Arabic، RTL وكبسولات.
 **هوية الصفحات داخله مستقلة**، وقد تكون فاتحة أو بألوان وخطوط المشروع.
+
+## تجربة الاستخدام الثابتة
+
+- المستخدم يجيب عن سؤال واحد ويقارن خياراته ثم يضغط «التالي». لا تطلب منه اختيار
+  مجال الأسئلة أو قسم أو مرحلة أو صوت/حركة/هيكل؛ استنتج المطلوب من سياق المشروع.
+- رتّب القرارات قبل توليد HTML، واستعمل `when` لإظهار المتابعات المناسبة تلقائيًا
+  حسب الإجابات. الأسئلة والفروع معدّة بواسطة الوكيل؛ HTML لا يستدعي نموذجًا داخله.
+- `phases` تنظيم داخلي للتصدير ومهام التنفيذ فقط. لا تضف selector للمرحلة، ولا
+  أزرارًا لكل سؤال، ولا واجهة إعداد قبل بداية الإجابة.
+- في الجوال: السؤال والخيارات أول الشاشة، و«التالي» ثابت أسفلها. لا تضع معاينة
+  كبيرة أو أدوات فوق السؤال. لا تمرّر صفحة المختبر عند تغيير المعاينة.
+- نافذة معاينة واحدة. «داخل الصفحة / لحاله» يظهران فقط عندما توجد معاينة منفردة
+  مفيدة، والتشغيل يظهر عند وجود حركة؛ لا صناديق معاينة متكررة أو مساحات فارغة.
+- الملاحظات والفكرة الأخرى خلف «ملاحظتك». خريطة الصفحات، فتح الصفحة، التنقل
+  الحر وتفاصيل التنفيذ في قائمة ⋯ المغلقة، متاحة عند الحاجة.
+- السؤال التالي ينتقل تلقائيًا إلى الصفحة المناسبة، ويعيد أعلى المختبر إلى السؤال.
+  لا يجبر المستخدم على فهم تنظيم البنك لكي يكمل المهمة.
 
 ## قبل بناء الخيارات
 
@@ -35,8 +52,8 @@ metadata:
 
 ## البدائل والمعاينة
 
-- ابتكر الحلول من المهمة نفسها. 3–8 بدائل مفيدة لكل قرار؛ لا تنسخ المثال المحايد.
-  العمق بحسب القرارات الفعلية، مع مراحل ومتابعات `when`، دون حشو لبلوغ عدد.
+- ابتكر الحلول من المهمة نفسها. 3–4 بدائل افتراضيًا لكل قرار، وحتى 8 عندما توجد فروق مفيدة تستدعيها؛ لا تنسخ المثال المحايد.
+  العمق بحسب القرارات الفعلية، مع مراحل ومتابعات `when`، دون حشو لبلوغ عدد. لا تضف أسئلة عن الصوت أو الفيديو أو أي تخصص ما لم يحتاجه الطلب.
 - اختلاف التقسيم يجب أن **يعيد ترتيب المحتوى الفعلي**: header، sidebar، أقسام،
   بطاقات، أفعال ومساحات. حافظ على نفس البيانات عند المقارنة. لا تستخدم مربعات
   باسم «بداية/تفصيل/نتيجة» بدل واجهة المستخدم أو أسماء المناطق بدل تطبيقها.
